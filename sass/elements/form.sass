@@ -38,6 +38,21 @@ $label-weight: $weight-bold !default
 
 $help-size: $size-small !default
 
+$slider-bg-color: $border !default
+$border-radius: 10px
+
+$track-height: 0.75em
+$track-border: none
+$track-active_color: lighten($slider-bg, 3%)
+
+$thumb-bg: #3273dc
+$thumb-height: $track-height * 2
+$thumb-width: $track-height * 2
+$thumb-border: none
+$thumb-border-radius: 50%
+$thumb-hover-color: lighten($thumb-bg, 2%)
+$thumb-active-color: darken($thumb-bg, 2%)
+
 =input
   +control
   background-color: $input-background-color
@@ -383,6 +398,78 @@ $help-size: $size-small !default
     $color: nth($pair, 1)
     &.is-#{$name}
       color: $color
+
+//Slider
+
+=thumb_base
+  background: $thumb-bg
+  border: $thumb-border
+  border-radius: $thumb-border-radius
+  cursor: pointer
+  height: $thumb-height
+  width: $thumb-height
+
+=thumb_hover
+  background: $thumb-hover-color
+  height: $thumb-height * 1.25
+  width: $thumb-height * 1.25
+
+
+.slider
+  width: 100%
+  height: $track-height
+  cursor: pointer
+  animate: 0.2s
+  background: $slider-bg-color
+  border-radius: $border-radius
+  border: $track-border
+
+.slider
+  -webkit-appearance: none
+  width: 100%
+
+.slider:focus
+  outline: none
+
+.slider:active
+  background: $track-active-color
+
+.slider::-webkit-slider-thumb
+  @include thumb_base
+  -webkit-appearance: none
+  transition: all ease-in 100ms
+  -webkit-transition: all ease-in 100ms
+
+.slider:hover::-webkit-slider-thumb
+  @include thumb_hover
+
+.slider:active::-webkit-slider-thumb
+  background: $thumb-active-color
+
+.slider::-moz-range-thumb
+  @include thumb_base
+
+.slider::-ms-thumb
+  @include thumb_base
+
+.slider::-ms-fill-lower
+  background: #2a6495
+  border: 0.2px solid #010101
+  border-radius: 2.6px
+
+.slider::-ms-fill-upper
+  background: $slider-bg-color
+  border: 0.2px solid #010101
+  border-radius: 2.6px
+
+.slider::-moz-range-track
+  background: transparent
+
+.slider::-ms-track
+  cursor: pointer
+  background: transparent
+  border-color: transparent
+  color: transparent
 
 // Containers
 

@@ -1,0 +1,51 @@
+---
+title: Slider
+layout: documentation
+doc-tab: form
+doc-subtab: slider
+---
+
+{% capture slider %}
+  <input class="slider" type="range" min="0" max="100">
+
+{% endcapture %}
+
+{% capture slider_colors %}
+<input class="slider is-primary" type="range" min="0" value="0" max="100">
+<input class="slider is-info" type="range" min="0" value="25" max="100">
+<input class="slider is-success" type="range" min="0" value="50" max="100">
+<input class="slider is-warning" type="range" min="0" value="75" max="100">
+<input class="slider is-danger" type="range" min="0" value="100" max="100">
+{% endcapture %}
+
+
+
+{% include subnav-form.html %}
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">Slider</h1>
+    <h2 class="subtitle">
+      A styled <strong>slider</strong>, cause anything else would be uncivilized
+    </h2>
+    {%
+      include meta.html
+      colors=true
+      sizes=true
+      variables=true
+    %}
+
+    <hr>
+
+    <div class="example">
+        {{slider}}
+    </div>
+    {% highlight html %}{{slider}}{% endhighlight %}
+
+    <div class="example">
+        {{slider_colors}}
+    </div>
+    {% highlight html %}{{slider_colors}}{% endhighlight %}
+
+  </div>
+</section>
