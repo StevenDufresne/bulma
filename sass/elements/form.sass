@@ -39,19 +39,19 @@ $label-weight: $weight-bold !default
 $help-size: $size-small !default
 
 $slider-bg-color: $border !default
-$border-radius: 10px
+$border-radius: 10px !default
 
-$track-height: 0.75em
-$track-border: none
-$track-active_color: lighten($slider-bg, 3%)
+$track-height: 0.75em !default
+$track-border: none !default
+$track-active_color: lighten($slider-bg-color, 3%) !default
 
-$thumb-bg: #3273dc
-$thumb-height: $track-height * 2
-$thumb-width: $track-height * 2
-$thumb-border: none
-$thumb-border-radius: 50%
-$thumb-hover-color: lighten($thumb-bg, 2%)
-$thumb-active-color: darken($thumb-bg, 2%)
+$thumb-bg: $primary !default
+$thumb-height: $track-height * 2 !default
+$thumb-width: $track-height * 2 !default
+$thumb-border: none !default
+$thumb-border-radius: 50% !default
+$thumb-hover-color: lighten($thumb-bg, 2%) !default
+$thumb-active-color: darken($thumb-bg, 2%) !default
 
 =input
   +control
@@ -423,6 +423,12 @@ $thumb-active-color: darken($thumb-bg, 2%)
   background: $slider-bg-color
   border-radius: $border-radius
   border: $track-border
+  &.is-small
+    height: $size-small
+  &.is-medium
+    height: $size-medium
+  &.is-large
+    height: $size-large
 
 .slider
   -webkit-appearance: none
